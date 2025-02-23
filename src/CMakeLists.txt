@@ -1,5 +1,7 @@
-# 生成可执行文件
-add_executable(HHProject main.cpp)
+cmake_minimum_required(VERSION 3.16.3)
 
-# 安装规则（可选）
-install(TARGETS HHProject DESTINATION bin)
+project(hhapp)
+
+set(SRC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/start_application.cpp)
+
+add_library(srclib SHARED ${SRC_PATH})

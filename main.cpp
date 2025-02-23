@@ -1,8 +1,8 @@
 #include <iostream>
+#include <cstring>
 
-int main() 
+int main(int argc, char* argv[]) 
 {
-    int a = 10;
-    int b = 20;
     std::cout << "hello world!" << std::endl;
+    return 0;
 }

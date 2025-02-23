@@ -1,24 +1,25 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.16.3)
+project(HHProject)
 
-# Set the project name
-project(LearnCpp)
+# 设置 C++ 标准
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_CXX_STANDARD 17)  # 设置c++编译版本
-set(CMAKE_CXX_STANDARD_REQUIRED ON) # 是否强制该版本
-
-# Add the main application
-add_executable(hhapp src/main.cpp)
+set(SRC_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
 # 测试项目开关
-option(BUILD_TESTS "build test projects" OFF)
+option(BUILD_TESTS "Build test projects" OFF)
+
+add_subdirectory(src)
+add_subdirectory(src/add_dir)
+
+add_executable(hhapp ${SRC_PATH}/main.cpp)
+
+# 根据BUILD_TESTS选项决定是否编译测试
 if(BUILD_TESTS)
-    enable_testing()
     add_subdirectory(test)
+    enable_testing()
 endif()
 
-# Add the test application
-# add_executable(test_app test/test.cpp)
-
-# Optionally, you can link libraries or set properties for each target
-# target_link_libraries(main_app some_library)
-# target_link_libraries(test_app some_library)
+target_link_libraries(hhapp PUBLIC srclib)
+target_link_libraries(hhapp PUBLIC addlib)
