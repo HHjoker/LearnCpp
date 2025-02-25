@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <gmock/gmock.h>
 #include "../src/add_dir/add.h"
 
 // 示例测试用例
