@@ -12,6 +12,7 @@ option(BUILD_TESTS "Build test projects" OFF)
 
 add_subdirectory(src)
 add_subdirectory(src/add_dir)
+add_subdirectory(src/turtle)
 
 add_executable(hhapp ${SRC_PATH}/main.cpp)
 
@@ -23,3 +24,4 @@ endif()
 
 target_link_libraries(hhapp PUBLIC srclib)
 target_link_libraries(hhapp PUBLIC addlib)
+target_link_libraries(hhapp PUBLIC turtlelib)
